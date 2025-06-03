@@ -1,0 +1,79 @@
+﻿using LibraryManagementApp.Api.Models;
+using System.Text.Json;
+
+namespace LibraryManagementApp.Api.Extensions
+{
+    public class UserJsonService : IJsonService<User>
+    {
+        private readonly string _filePath = "Data/users.json";
+        private List<User> _users = new();
+
+        public UserJsonService()
+        {
+            Load();
+        }
+
+
+        private void Load()
+        {
+            if (File.Exists(_filePath))
+            {
+                var json = File.ReadAllText(_filePath);
+                if (string.IsNullOrEmpty(json)) 
+                    _users = new List<User>();
+                
+                else 
+                    _users = JsonSerializer.Deserialize<List<User>>(json);
+            }
+        }
+
+        private void Save()
+        {
+            var json = JsonSerializer.Serialize(_users, new JsonSerializerOptions
+            {
+                WriteIndented = true
+            });
+
+            File.WriteAllText(_filePath, json); 
+        }
+
+
+        public void Add(User user)
+        {
+            if (_users.Any(u => u.Id == user.Id || u.Username == user.Username))
+                throw new Exception("user with same Id or Username already exists");
+
+            _users.Add(user);
+            Save();
+        }
+
+        public void Delete(int id)
+        {
+            var user = GetById(id);
+            if (user == null) throw new Exception("User not found.");
+
+            _users.Remove(user);
+            Save();
+        }
+
+        public List<User> GetAll()
+        {
+            return _users;
+        }
+
+        public User? GetById(int id)
+        {
+            return _users.FirstOrDefault(x => x.Id == id);
+        }
+
+        public void Update(User user)
+        {
+            var index = _users.FindIndex(u => u.Id == user.Id);
+            if (index == -1)
+                throw new Exception("User not found.");
+
+            _users[index] = user;
+            Save();
+        }
+    }
+}

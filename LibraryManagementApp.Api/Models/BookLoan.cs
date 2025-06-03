@@ -5,7 +5,7 @@ public class BookLoan
     public BookLoan()
     {
         BorrowedAt = DateTime.UtcNow.AddHours(5);
-        DueDate = BorrowedAt.AddDays(7);
+        DueDate = BorrowedAt.AddDays(3);
     }
 
 
