@@ -1,9 +1,10 @@
 ﻿using LibraryManagementApp.Api.Models;
+using LibraryManagementApp.Api.Repositories.Interfaces;
 using System.Text.Json;
 
 namespace LibraryManagementApp.Api.Repositories;
 
-public class BookLoanJsonRepository : IJsonRepository<BookLoan>
+public class BookLoanJsonRepository : IBookLoanRepository
 {
     private readonly string _filePath = "Data/bookLoan.json";
     private List<BookLoan> _bookLoans = new List<BookLoan>();

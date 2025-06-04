@@ -1,0 +1,18 @@
+[
+  {
+    "Id": 0,
+    "FName": "Azizbek",
+    "LName": "Qasimbekov",
+    "Username": "denazick",
+    "PasswordHash": "string",
+    "PhoneNumber": "\u002B998938095347",
+    "Address": "string",
+    "Passport": "ab4444540",
+    "Email": "string",
+    "CreatedAt": "2025-06-04T08:39:02.326Z",
+    "Role": 2,
+    "BookLoanId": [
+      0
+    ]
+  }
+]

@@ -18,6 +18,17 @@ public class BookLoan
 
     public DateTime BorrowedAt { get; set; }
     public DateTime DueDate { get; set;} 
+
+    public bool Returned {
+        get => ReturnedAt.HasValue;
+        set
+        {
+            if (!value)
+                ReturnedAt = null;
+            else if (!ReturnedAt.HasValue)
+                ReturnedAt = DateTime.UtcNow.AddHours(5);
+        }
+    }
     public DateTime? ReturnedAt { get; set; }
 
 

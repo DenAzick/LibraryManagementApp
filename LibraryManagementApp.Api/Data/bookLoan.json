@@ -1,0 +1,108 @@
+[
+  {
+    "Id": 0,
+    "BookId": 0,
+    "Book": {
+      "Id": 0,
+      "Name": "string",
+      "Description": "string",
+      "Author": "string",
+      "Year": "2025-06-04T08:40:11.485Z",
+      "Genre": 0,
+      "ISBN": "string",
+      "Quantity": 0,
+      "BookLoanId": [
+        0
+      ]
+    },
+    "UserId": 0,
+    "User": {
+      "Id": 0,
+      "FName": "Azizbek",
+      "LName": "Qasimbekov",
+      "Username": "string",
+      "PasswordHash": "denazick",
+      "PhoneNumber": "\u002B998938095347",
+      "Address": "string",
+      "Passport": "ab4444540",
+      "Email": "string",
+      "CreatedAt": "2025-06-04T08:40:11.485Z",
+      "Role": 0,
+      "BookLoanId": [
+        0
+      ]
+    },
+    "BorrowedAt": "2025-06-04T08:40:11.485Z",
+    "DueDate": "2025-06-04T08:40:11.485Z",
+    "Returned": true,
+    "ReturnedAt": "2025-06-04T08:40:11.485Z",
+    "FinePerDay": 0,
+    "FineAmount": 0
+  },
+  {
+    "Id": 1,
+    "BookId": 1,
+    "Book": {
+      "Id": 1,
+      "Name": "string1",
+      "Description": "string",
+      "Author": "string",
+      "Year": "2025-06-04T08:49:44.634Z",
+      "Genre": 0,
+      "ISBN": "string",
+      "Quantity": 0,
+      "BookLoanId": [
+        0
+      ]
+    },
+    "UserId": 0,
+    "User": {
+      "Id": 0,
+      "FName": "Azizbek",
+      "LName": "Qasimbekov",
+      "Username": "denazick",
+      "PasswordHash": "string",
+      "PhoneNumber": "\u002B998938095347",
+      "Address": "string",
+      "Passport": "ab4444540",
+      "Email": "string",
+      "CreatedAt": "2025-06-04T08:49:44.634Z",
+      "Role": 2,
+      "BookLoanId": [
+        1
+      ]
+    },
+    "BorrowedAt": "2025-06-04T08:49:44.634Z",
+    "DueDate": "2025-06-04T08:49:44.634Z",
+    "Returned": true,
+    "ReturnedAt": "2025-06-04T08:49:44.634Z",
+    "FinePerDay": 0,
+    "FineAmount": 0
+  },
+  {
+    "Id": 3,
+    "BookId": 0,
+    "Book": null,
+    "UserId": 0,
+    "User": null,
+    "BorrowedAt": "2025-06-04T14:42:11.589887Z",
+    "DueDate": "2025-06-07T09:42:11.5898871Z",
+    "Returned": true,
+    "ReturnedAt": "2025-06-04T14:42:11.5898878Z",
+    "FinePerDay": 2000,
+    "FineAmount": 0
+  },
+  {
+    "Id": 4,
+    "BookId": 0,
+    "Book": null,
+    "UserId": 0,
+    "User": null,
+    "BorrowedAt": "2025-06-04T14:43:07.1450717Z",
+    "DueDate": "2025-06-07T09:43:07.1450718Z",
+    "Returned": false,
+    "ReturnedAt": null,
+    "FinePerDay": 2000,
+    "FineAmount": 0
+  }
+]

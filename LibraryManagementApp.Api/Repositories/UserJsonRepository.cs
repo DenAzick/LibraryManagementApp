@@ -1,9 +1,10 @@
 ﻿using LibraryManagementApp.Api.Models;
+using LibraryManagementApp.Api.Repositories.Interfaces;
 using System.Text.Json;
 
 namespace LibraryManagementApp.Api.Repositories
 {
-    public class UserJsonRepository : IJsonRepository<User>
+    public class UserJsonRepository : IUserRepository
     {
         private readonly string _filePath = "Data/users.json";
         private List<User> _users = new();
@@ -42,6 +43,13 @@ namespace LibraryManagementApp.Api.Repositories
         {
             if (_users.Any(u => u.Id == user.Id || u.Username == user.Username))
                 throw new Exception("user with same Id or Username already exists");
+
+            int newId = 1;
+            if (_users.Count > 0)
+            {
+                newId = _users.Max(u => u.Id) + 1;
+            }
+            user.Id = newId;
 
             _users.Add(user);
             Save();

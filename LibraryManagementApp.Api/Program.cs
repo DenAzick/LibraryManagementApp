@@ -1,4 +1,5 @@
 using LibraryManagementApp.Api.Repositories;
+using LibraryManagementApp.Api.Repositories.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,9 +12,9 @@ builder.Services.AddSwaggerGen();
 
 
 
-builder.Services.AddScoped<UserJsonRepository>();
-builder.Services.AddScoped<BookJsonRepository>();
-builder.Services.AddScoped<BookLoanJsonRepository>();
+builder.Services.AddScoped<IUserRepository, UserJsonRepository>();
+builder.Services.AddScoped<IBookRepository, BookJsonRepository>();
+builder.Services.AddScoped<IBookLoanRepository, BookLoanJsonRepository>();
 
 
 var app = builder.Build();

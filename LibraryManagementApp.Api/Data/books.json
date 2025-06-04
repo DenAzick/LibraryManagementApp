@@ -1,0 +1,28 @@
+[
+  {
+    "Id": 0,
+    "Name": "string",
+    "Description": "string",
+    "Author": "string",
+    "Year": "2025-06-04T08:34:58.711Z",
+    "Genre": 0,
+    "ISBN": "string",
+    "Quantity": 0,
+    "BookLoanId": [
+      0
+    ]
+  },
+  {
+    "Id": 1,
+    "Name": "string1",
+    "Description": "string",
+    "Author": "string",
+    "Year": "2025-06-04T08:34:58.711Z",
+    "Genre": 0,
+    "ISBN": "string",
+    "Quantity": 0,
+    "BookLoanId": [
+      0
+    ]
+  }
+]

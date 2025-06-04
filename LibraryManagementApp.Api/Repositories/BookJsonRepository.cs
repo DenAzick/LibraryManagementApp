@@ -1,9 +1,10 @@
 ﻿using LibraryManagementApp.Api.Models;
+using LibraryManagementApp.Api.Repositories.Interfaces;
 using System.Text.Json;
 
 namespace LibraryManagementApp.Api.Repositories;
 
-public class BookJsonRepository : IJsonRepository<Book>
+public class BookJsonRepository : IBookRepository
 {
     private readonly string _filePath = "Data/books.json";
     private List<Book> _books = new List<Book>();
@@ -36,6 +37,11 @@ public class BookJsonRepository : IJsonRepository<Book>
     {
         if (_books.Any(b => b.Id == book.Id))
             throw new Exception("book with same Id already exists");
+
+        if (_books.Count > 0)
+            book.Id = _books.Max(b => b.Id) + 1;
+        else
+            book.Id = 1;
 
         _books.Add(book);
         Save();
