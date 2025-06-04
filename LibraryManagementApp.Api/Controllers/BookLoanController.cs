@@ -18,7 +18,23 @@ public class BookLoanController : ControllerBase
     }
 
     [HttpGet]
-    public IActionResult GetAll() => Ok(_loanRepository.GetAll());
+    public async IActionResult GetAll()
+    {
+        var loans = _loanRepository.GetAll(); // или await, если async
+        var books = _bookRepository.GetAll();
+        var users = _userRepository.GetAll();
+
+        var loanDtos = loans.Select(loan => new BookLoanDto
+        {
+            Id = loan.Id,
+            BookTitle = books.FirstOrDefault(b => b.Id == loan.BookId)?.Title ?? "N/A",
+            UserFullName = users.FirstOrDefault(u => u.Id == loan.UserId)?.Username ?? "N/A",
+            LoanDate = loan.LoanDate,
+            ReturnDate = loan.ReturnDate
+        }).ToList();
+
+        return Ok(loanDtos);
+    }
 
     [HttpGet("{id}")]
     public IActionResult GetById(int id)

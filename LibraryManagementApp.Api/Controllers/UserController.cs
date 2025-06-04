@@ -34,7 +34,7 @@ public class UserController : ControllerBase
         {
             FName = userDto.FName,
             LName = userDto.LName,
-            PasswordHash = userDto.PasswordHash,
+            //PasswordHash = userDto.PasswordHash,
             PhoneNumber = userDto.PhoneNumber,
             Address = userDto.Address,
             Passport = userDto.Passport,

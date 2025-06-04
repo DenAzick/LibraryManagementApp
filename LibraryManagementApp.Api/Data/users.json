@@ -4,7 +4,6 @@
     "FName": "Azizbek",
     "LName": "Qasimbekov",
     "Username": "denazick",
-    "PasswordHash": "string",
     "PhoneNumber": "\u002B998938095347",
     "Address": "string",
     "Passport": "ab4444540",
@@ -14,5 +13,31 @@
     "BookLoanId": [
       0
     ]
+  },
+  {
+    "Id": 1,
+    "FName": "qwerty",
+    "LName": "ytrewq",
+    "Username": "",
+    "PhoneNumber": "\u002B998 123456789",
+    "Address": null,
+    "Passport": "qw1234567",
+    "Email": null,
+    "CreatedAt": "2025-06-04T21:54:04.0077259Z",
+    "Role": 2,
+    "BookLoanId": []
+  },
+  {
+    "Id": 2,
+    "FName": "kimdur",
+    "LName": "palonchi",
+    "Username": "",
+    "PhoneNumber": "\u002B998 987654321",
+    "Address": null,
+    "Passport": "aa1234567",
+    "Email": null,
+    "CreatedAt": "2025-06-04T21:55:13.8452147Z",
+    "Role": 2,
+    "BookLoanId": []
   }
 ]

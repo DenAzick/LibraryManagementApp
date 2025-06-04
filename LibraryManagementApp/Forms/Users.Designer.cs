@@ -47,6 +47,7 @@
             buttonAddUser.TabIndex = 0;
             buttonAddUser.Text = "Add user";
             buttonAddUser.UseVisualStyleBackColor = true;
+            buttonAddUser.Click += buttonAddUser_Click;
             // 
             // textBoxFName
             // 
@@ -75,6 +76,7 @@
             textBoxPhoneNumber.Name = "textBoxPhoneNumber";
             textBoxPhoneNumber.Size = new Size(246, 23);
             textBoxPhoneNumber.TabIndex = 4;
+            textBoxPhoneNumber.Text = "+998 ";
             // 
             // dataGridViewUsers
             // 
@@ -118,6 +120,7 @@
             MinimizeBox = false;
             Name = "Users";
             Text = "Users";
+            Load += Users_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridViewUsers).EndInit();
             ResumeLayout(false);
             PerformLayout();

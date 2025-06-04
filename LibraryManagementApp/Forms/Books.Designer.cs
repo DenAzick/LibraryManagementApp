@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridView1 = new DataGridView();
+            dataGridViewBooks = new DataGridView();
             buttonAddBook = new Button();
             textBoxName = new TextBox();
             textBoxDescription = new TextBox();
@@ -36,17 +36,17 @@
             dateTimePickerBook = new DateTimePicker();
             comboBoxGenre = new ComboBox();
             textBoxISBN = new TextBox();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewBooks).BeginInit();
             SuspendLayout();
             // 
-            // dataGridView1
+            // dataGridViewBooks
             // 
-            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(277, 12);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(719, 705);
-            dataGridView1.TabIndex = 0;
+            dataGridViewBooks.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridViewBooks.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewBooks.Location = new Point(277, 12);
+            dataGridViewBooks.Name = "dataGridViewBooks";
+            dataGridViewBooks.Size = new Size(719, 705);
+            dataGridViewBooks.TabIndex = 0;
             // 
             // buttonAddBook
             // 
@@ -112,19 +112,20 @@
             Controls.Add(textBoxDescription);
             Controls.Add(textBoxName);
             Controls.Add(buttonAddBook);
-            Controls.Add(dataGridView1);
+            Controls.Add(dataGridViewBooks);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MinimizeBox = false;
             Name = "Books";
             Text = "Books";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            Load += Books_Load;
+            ((System.ComponentModel.ISupportInitialize)dataGridViewBooks).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private DataGridView dataGridView1;
+        private DataGridView dataGridViewBooks;
         private Button buttonAddBook;
         private TextBox textBoxName;
         private TextBox textBoxDescription;

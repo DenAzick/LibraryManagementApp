@@ -41,8 +41,8 @@ namespace LibraryManagementApp.Api.Repositories
 
         public void Add(User user)
         {
-            if (_users.Any(u => u.Id == user.Id || u.Username == user.Username))
-                throw new Exception("user with same Id or Username already exists");
+            //if (_users.Any(u => u.Id == user.Id || u.Username == user.Username))
+            //    throw new Exception("user with same Id or Username already exists");
 
             int newId = 1;
             if (_users.Count > 0)
@@ -50,6 +50,9 @@ namespace LibraryManagementApp.Api.Repositories
                 newId = _users.Max(u => u.Id) + 1;
             }
             user.Id = newId;
+
+            if (!string.IsNullOrEmpty(user.Username) && _users.Any(u => u.Username == user.Username))
+                throw new Exception("User with same Username already exists");
 
             _users.Add(user);
             Save();

@@ -28,22 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridView1 = new DataGridView();
+            dataGridViewLoans = new DataGridView();
             buttonSearch = new Button();
-            comboBoxAccaunt = new ComboBox();
-            comboBoxBook = new ComboBox();
             buttonReturn = new Button();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            textBoxPassport = new TextBox();
+            textBoxBook = new TextBox();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewLoans).BeginInit();
             SuspendLayout();
             // 
-            // dataGridView1
+            // dataGridViewLoans
             // 
-            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(293, 12);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(703, 705);
-            dataGridView1.TabIndex = 0;
+            dataGridViewLoans.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridViewLoans.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewLoans.Location = new Point(293, 12);
+            dataGridViewLoans.Name = "dataGridViewLoans";
+            dataGridViewLoans.Size = new Size(703, 705);
+            dataGridViewLoans.TabIndex = 0;
             // 
             // buttonSearch
             // 
@@ -53,22 +53,7 @@
             buttonSearch.TabIndex = 1;
             buttonSearch.Text = "search 🔍 ";
             buttonSearch.UseVisualStyleBackColor = true;
-            // 
-            // comboBoxAccaunt
-            // 
-            comboBoxAccaunt.FormattingEnabled = true;
-            comboBoxAccaunt.Location = new Point(12, 12);
-            comboBoxAccaunt.Name = "comboBoxAccaunt";
-            comboBoxAccaunt.Size = new Size(275, 23);
-            comboBoxAccaunt.TabIndex = 4;
-            // 
-            // comboBoxBook
-            // 
-            comboBoxBook.FormattingEnabled = true;
-            comboBoxBook.Location = new Point(12, 41);
-            comboBoxBook.Name = "comboBoxBook";
-            comboBoxBook.Size = new Size(275, 23);
-            comboBoxBook.TabIndex = 5;
+            buttonSearch.Click += buttonSearch_Click;
             // 
             // buttonReturn
             // 
@@ -78,31 +63,48 @@
             buttonReturn.TabIndex = 6;
             buttonReturn.Text = "Return";
             buttonReturn.UseVisualStyleBackColor = true;
+            buttonReturn.Click += buttonReturn_Click;
+            // 
+            // textBoxPassport
+            // 
+            textBoxPassport.Location = new Point(12, 12);
+            textBoxPassport.Name = "textBoxPassport";
+            textBoxPassport.Size = new Size(275, 23);
+            textBoxPassport.TabIndex = 7;
+            // 
+            // textBoxBook
+            // 
+            textBoxBook.Location = new Point(12, 41);
+            textBoxBook.Name = "textBoxBook";
+            textBoxBook.Size = new Size(275, 23);
+            textBoxBook.TabIndex = 8;
             // 
             // BookLoans
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1008, 729);
+            Controls.Add(textBoxBook);
+            Controls.Add(textBoxPassport);
             Controls.Add(buttonReturn);
-            Controls.Add(comboBoxBook);
-            Controls.Add(comboBoxAccaunt);
             Controls.Add(buttonSearch);
-            Controls.Add(dataGridView1);
+            Controls.Add(dataGridViewLoans);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MinimizeBox = false;
             Name = "BookLoans";
             Text = " ";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            Load += BookLoans_Load;
+            ((System.ComponentModel.ISupportInitialize)dataGridViewLoans).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
-        private DataGridView dataGridView1;
+        private DataGridView dataGridViewLoans;
         private Button buttonSearch;
-        private ComboBox comboBoxAccaunt;
-        private ComboBox comboBoxBook;
         private Button buttonReturn;
+        private TextBox textBoxPassport;
+        private TextBox textBoxBook;
     }
 }

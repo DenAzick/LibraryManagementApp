@@ -49,6 +49,7 @@
             buttonManager.TabIndex = 0;
             buttonManager.Text = "Book manager";
             buttonManager.UseVisualStyleBackColor = true;
+            buttonManager.Click += buttonManager_Click;
             // 
             // buttonUserManager
             // 
@@ -58,6 +59,7 @@
             buttonUserManager.TabIndex = 1;
             buttonUserManager.Text = "User manager";
             buttonUserManager.UseVisualStyleBackColor = true;
+            buttonUserManager.Click += buttonUserManager_Click;
             // 
             // buttonLoans
             // 
@@ -67,6 +69,7 @@
             buttonLoans.TabIndex = 2;
             buttonLoans.Text = "Loan manager";
             buttonLoans.UseVisualStyleBackColor = true;
+            buttonLoans.Click += buttonLoans_Click;
             // 
             // dataGridViewBooks
             // 
@@ -92,6 +95,7 @@
             buttonSearchName.TabIndex = 5;
             buttonSearchName.Text = "🔍 ";
             buttonSearchName.UseVisualStyleBackColor = true;
+            buttonSearchName.Click += buttonSearchName_Click;
             // 
             // buttonSearchGenre
             // 
@@ -101,6 +105,7 @@
             buttonSearchGenre.TabIndex = 7;
             buttonSearchGenre.Text = "🔍 ";
             buttonSearchGenre.UseVisualStyleBackColor = true;
+            buttonSearchGenre.Click += buttonSearchGenre_Click;
             // 
             // textBoxGenre
             // 
@@ -117,6 +122,7 @@
             buttonSearchAuthor.TabIndex = 9;
             buttonSearchAuthor.Text = "🔍 ";
             buttonSearchAuthor.UseVisualStyleBackColor = true;
+            buttonSearchAuthor.Click += buttonSearchAuthor_Click;
             // 
             // textBoxAuthor
             // 
@@ -143,6 +149,7 @@
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "Main";
             Text = "Library Management";
+            Load += Main_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridViewBooks).EndInit();
             ResumeLayout(false);
             PerformLayout();
