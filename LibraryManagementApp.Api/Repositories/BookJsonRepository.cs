@@ -1,14 +1,14 @@
 ﻿using LibraryManagementApp.Api.Models;
 using System.Text.Json;
 
-namespace LibraryManagementApp.Api.Extensions;
+namespace LibraryManagementApp.Api.Repositories;
 
-public class BookJsonService : IJsonService<Book>
+public class BookJsonRepository : IJsonRepository<Book>
 {
     private readonly string _filePath = "Data/books.json";
     private List<Book> _books = new List<Book>();
 
-    public BookJsonService()
+    public BookJsonRepository()
     {
         Load();
     }
@@ -69,5 +69,26 @@ public class BookJsonService : IJsonService<Book>
 
         _books[index] = book;
         Save();
+    }
+
+
+    public List<Book> SearchByName(string name)
+    {
+        return _books
+            .Where(b => !string.IsNullOrEmpty(b.Name) && b.Name.Contains(name, StringComparison.OrdinalIgnoreCase))
+            .ToList();
+    }
+
+
+    public List<Book> SearchByAuthor(string author)
+    {
+        return _books
+            .Where(b => !string.IsNullOrEmpty(b.Author) && b.Author.Contains(author, StringComparison.OrdinalIgnoreCase))
+            .ToList();
+    }
+
+    public List<Book> SearchByGenre(EGenre genre)
+    {
+        return _books.Where(b => b.Genre == genre).ToList();
     }
 }

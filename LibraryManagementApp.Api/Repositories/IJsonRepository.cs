@@ -1,6 +1,6 @@
-﻿namespace LibraryManagementApp.Api.Extensions;
+﻿namespace LibraryManagementApp.Api.Repositories;
 
-public interface IJsonService<T>
+public interface IJsonRepository<T>
 {
     List<T> GetAll();
     T? GetById(int id);

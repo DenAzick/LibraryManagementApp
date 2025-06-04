@@ -1,14 +1,14 @@
 ﻿using LibraryManagementApp.Api.Models;
 using System.Text.Json;
 
-namespace LibraryManagementApp.Api.Extensions
+namespace LibraryManagementApp.Api.Repositories
 {
-    public class UserJsonService : IJsonService<User>
+    public class UserJsonRepository : IJsonRepository<User>
     {
         private readonly string _filePath = "Data/users.json";
         private List<User> _users = new();
 
-        public UserJsonService()
+        public UserJsonRepository()
         {
             Load();
         }
@@ -75,5 +75,14 @@ namespace LibraryManagementApp.Api.Extensions
             _users[index] = user;
             Save();
         }
+
+
+        public User? SearchByPassport(string passport)
+        {
+            return _users
+                .FirstOrDefault(u => !string.IsNullOrEmpty(u.Passport) &&
+                                     u.Passport.Equals(passport, StringComparison.OrdinalIgnoreCase));
+        }
+
     }
 }

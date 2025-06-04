@@ -1,14 +1,14 @@
 ﻿using LibraryManagementApp.Api.Models;
 using System.Text.Json;
 
-namespace LibraryManagementApp.Api.Extensions;
+namespace LibraryManagementApp.Api.Repositories;
 
-public class BookLoanJsonService : IJsonService<BookLoan>
+public class BookLoanJsonRepository : IJsonRepository<BookLoan>
 {
     private readonly string _filePath = "Data/bookLoan.json";
     private List<BookLoan> _bookLoans = new List<BookLoan>();
 
-    public BookLoanJsonService()
+    public BookLoanJsonRepository()
     {
         Load();
     }

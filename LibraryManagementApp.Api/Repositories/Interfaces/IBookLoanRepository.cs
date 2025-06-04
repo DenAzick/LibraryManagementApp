@@ -2,8 +2,7 @@
 
 namespace LibraryManagementApp.Api.Repositories.Interfaces
 {
-    public interface IUserRepository : IJsonRepository<User>
+    public interface IBookLoanRepository : IJsonRepository<BookLoan>
     {
-        User? SearchByPassport(string passport);
     }
 }
