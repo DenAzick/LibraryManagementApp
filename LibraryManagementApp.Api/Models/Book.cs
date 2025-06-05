@@ -10,6 +10,12 @@ public class Book
     public EGenre Genre { get; set; }
     public string ISBN { get; set; } = string.Empty;
 
+    public string BookTitle { get; set; }
+    public string UserFullName { get; set; }
+    public DateTime LoanDate { get; set; }
+    public DateTime? ReturnDate { get; set; }
+
+
     public int Quantity { get; set; }
     public List<int> BookLoanId { get; set; } = new();
 }

@@ -35,8 +35,8 @@ public class BookJsonRepository : IBookRepository
 
     public void Add(Book book)
     {
-        if (_books.Any(b => b.Id == book.Id))
-            throw new Exception("book with same Id already exists");
+        //if (_books.Any(b => b.Id == book.Id))
+        //    throw new Exception("book with same Id already exists");
 
         if (_books.Count > 0)
             book.Id = _books.Max(b => b.Id) + 1;

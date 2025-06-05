@@ -23,10 +23,10 @@ public class BookLoan
         get => ReturnedAt.HasValue;
         set
         {
-            if (!value)
-                ReturnedAt = null;
-            else if (!ReturnedAt.HasValue)
+            if (value && !ReturnedAt.HasValue)
                 ReturnedAt = DateTime.UtcNow.AddHours(5);
+            else if (!value)
+                ReturnedAt = null;
         }
     }
     public DateTime? ReturnedAt { get; set; }
@@ -45,13 +45,9 @@ public class BookLoan
 
     private decimal CalculateFine()
     {
-        if (ReturnedAt == null)
-        {
-            return 0;
-        }
+        var compareDate = ReturnedAt?.Date ?? DateTime.UtcNow.AddHours(5).Date;
 
-        DateTime returnedDate = ReturnedAt.Value.Date;
-        int overdueDays = (returnedDate - DueDate.Date).Days;
+        int overdueDays = (compareDate - DueDate.Date).Days;
 
         if (overdueDays > 0)
         {

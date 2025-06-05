@@ -36,6 +36,8 @@
             dateTimePickerBook = new DateTimePicker();
             comboBoxGenre = new ComboBox();
             textBoxISBN = new TextBox();
+            buttonDelete = new Button();
+            buttonEdit = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridViewBooks).BeginInit();
             SuspendLayout();
             // 
@@ -56,6 +58,7 @@
             buttonAddBook.TabIndex = 1;
             buttonAddBook.Text = "add";
             buttonAddBook.UseVisualStyleBackColor = true;
+            buttonAddBook.Click += buttonAddBook_Click;
             // 
             // textBoxName
             // 
@@ -100,11 +103,33 @@
             textBoxISBN.Size = new Size(259, 23);
             textBoxISBN.TabIndex = 8;
             // 
+            // buttonDelete
+            // 
+            buttonDelete.Location = new Point(196, 215);
+            buttonDelete.Name = "buttonDelete";
+            buttonDelete.Size = new Size(75, 23);
+            buttonDelete.TabIndex = 9;
+            buttonDelete.Text = "delete";
+            buttonDelete.UseVisualStyleBackColor = true;
+            buttonDelete.Click += buttonDelete_Click;
+            // 
+            // buttonEdit
+            // 
+            buttonEdit.Location = new Point(196, 244);
+            buttonEdit.Name = "buttonEdit";
+            buttonEdit.Size = new Size(75, 23);
+            buttonEdit.TabIndex = 10;
+            buttonEdit.Text = "edit";
+            buttonEdit.UseVisualStyleBackColor = true;
+            buttonEdit.Click += buttonEdit_Click;
+            // 
             // Books
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1008, 729);
+            Controls.Add(buttonEdit);
+            Controls.Add(buttonDelete);
             Controls.Add(textBoxISBN);
             Controls.Add(comboBoxGenre);
             Controls.Add(dateTimePickerBook);
@@ -133,5 +158,7 @@
         private DateTimePicker dateTimePickerBook;
         private ComboBox comboBoxGenre;
         private TextBox textBoxISBN;
+        private Button buttonDelete;
+        private Button buttonEdit;
     }
 }

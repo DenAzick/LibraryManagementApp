@@ -1,4 +1,7 @@
-﻿namespace LibraryManagementApp.Models;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+
+namespace LibraryManagementApp.Models;
 
 public class Book
 {
@@ -15,18 +18,31 @@ public class Book
 
 public enum EGenre
 {
+    [Display(Name = "Romance")]
     Romance,
+    [Display(Name = "Detective")]
     Detective,
+    [Display(Name = "ScienceFiction")]
     ScienceFiction,
+    [Display(Name = "Fantasy")]
     Fantasy,
+    [Display(Name = "Thriller")]
     Thriller,
+    [Display(Name = "Horror")]
     Horror,
+    [Display(Name = "HistoricalFiction")]
     HistoricalFiction,
+    [Display(Name = "Biography")]
     Biography,
+    [Display(Name = "SelfHelp")]
     SelfHelp,
+    [Display(Name = "History")]
     History,
+    [Display(Name = "ScienceTechnology")]
     ScienceTechnology,
+    [Display(Name = "Classics")]
     Classics,
+    [Display(Name = "Poetry")]
     Poetry
 
 

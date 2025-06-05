@@ -11,26 +11,46 @@ namespace LibraryManagementApp.Api.Controllers;
 public class BookLoanController : ControllerBase
 {
     private readonly IBookLoanRepository _loanRepository;
+    private readonly IUserRepository _userRepository;
+    private readonly IBookRepository _bookRepository;
 
-    public BookLoanController(IBookLoanRepository loanRepository)
+    public BookLoanController(IBookLoanRepository loanRepository, IUserRepository userRepository, IBookRepository bookRepository)
     {
         _loanRepository = loanRepository;
+        _userRepository = userRepository;
+        _bookRepository = bookRepository;
     }
 
     [HttpGet]
-    public async IActionResult GetAll()
+    public IActionResult GetAll()
     {
-        var loans = _loanRepository.GetAll(); // или await, если async
+        var loans = _loanRepository.GetAll();
         var books = _bookRepository.GetAll();
         var users = _userRepository.GetAll();
 
-        var loanDtos = loans.Select(loan => new BookLoanDto
+        var now = DateTime.UtcNow.AddHours(5);
+
+        var loanDtos = loans.Select(loan =>
         {
-            Id = loan.Id,
-            BookTitle = books.FirstOrDefault(b => b.Id == loan.BookId)?.Title ?? "N/A",
-            UserFullName = users.FirstOrDefault(u => u.Id == loan.UserId)?.Username ?? "N/A",
-            LoanDate = loan.LoanDate,
-            ReturnDate = loan.ReturnDate
+            var book = books.FirstOrDefault(b => b.Id == loan.BookId);
+            var user = users.FirstOrDefault(u => u.Id == loan.UserId);
+
+            DateTime returnDate = loan.ReturnedAt ?? now;
+            int overdueDays = (returnDate.Date - loan.DueDate.Date).Days;
+            decimal fine = overdueDays > 0 ? overdueDays * loan.FinePerDay : 0;
+
+            return new BookLoanDto
+            {
+                Id = loan.Id,
+                BookTitle = book?.Name ?? "",
+                UserFullName = $"{user?.FName ?? ""} {user?.LName ?? ""}".Trim(),
+                LoanDate = loan.BorrowedAt,
+                DueDate = loan.DueDate,
+                ReturnDate = loan.ReturnedAt,
+                FineAmount = fine,
+                
+                
+            };
         }).ToList();
 
         return Ok(loanDtos);
@@ -49,8 +69,8 @@ public class BookLoanController : ControllerBase
         var loan = new BookLoan
         {
             Id = loanDto.Id,
-            BookId = loanDto.BookId,
-            UserId = loanDto.UserId,
+            //BookId = loanDto.BookId,
+            //UserId = loanDto.UserId,
             BorrowedAt = DateTime.UtcNow.AddHours(5),
             DueDate = DateTime.UtcNow.AddDays(3),
             Returned = loanDto.Returned
@@ -61,6 +81,27 @@ public class BookLoanController : ControllerBase
         _loanRepository.Add(loan);
         return Ok();
     }
+
+    [HttpPut("{id}/return")]
+    public IActionResult ReturnBook(int id)
+    {
+        var loan = _loanRepository.GetById(id);
+        if (loan == null)
+            return NotFound("Запись не найдена.");
+
+        if (loan.Returned)
+            return BadRequest("Книга уже возвращена.");
+
+        loan.Returned = true; 
+        _loanRepository.Update(loan);
+
+        return Ok(new
+        {
+            message = "Книга успешно возвращена",
+            returnedAt = loan.ReturnedAt
+        });
+    }
+
 
     [HttpPut("{id}")]
     public IActionResult Update(int id, BookLoan loan)

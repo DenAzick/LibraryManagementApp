@@ -66,7 +66,7 @@ public partial class Users : Form
 
         try
         {
-            var response = await _httpClient.PostAsync("/api/User", content);
+            var response = await _httpClient.PostAsync("/api/User", content);   
 
             if (response.IsSuccessStatusCode)
             {

@@ -7,6 +7,10 @@
     "Year": "2025-06-04T08:34:58.711Z",
     "Genre": 0,
     "ISBN": "string",
+    "BookTitle": null,
+    "UserFullName": null,
+    "LoanDate": "0001-01-01T00:00:00",
+    "ReturnDate": null,
     "Quantity": 0,
     "BookLoanId": [
       0
@@ -20,9 +24,28 @@
     "Year": "2025-06-04T08:34:58.711Z",
     "Genre": 0,
     "ISBN": "string",
+    "BookTitle": null,
+    "UserFullName": null,
+    "LoanDate": "0001-01-01T00:00:00",
+    "ReturnDate": null,
     "Quantity": 0,
     "BookLoanId": [
       0
     ]
+  },
+  {
+    "Id": 2,
+    "Name": "ona tili",
+    "Description": "ona tili",
+    "Author": "palonchi",
+    "Year": "2025-06-05T08:32:48.536505+05:00",
+    "Genre": 5,
+    "ISBN": "12345678",
+    "BookTitle": null,
+    "UserFullName": null,
+    "LoanDate": "0001-01-01T00:00:00",
+    "ReturnDate": null,
+    "Quantity": 0,
+    "BookLoanId": []
   }
 ]
